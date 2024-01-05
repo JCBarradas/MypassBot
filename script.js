@@ -119,7 +119,7 @@ function getPasswordOptions() {
 var userOptions = getPasswordOptions()
 console.log(userOptions);
 
-//Funtion to include the user options into one array.
+//Include the user options into one array.
 var userOptionsVarr = []
 if (userOptions.hasLowercase === true){
   userOptionsVarr = userOptionsVarr.concat(lowerCasedCharacters)
@@ -133,7 +133,7 @@ if (userOptions.hasSpecialCharacter === true) {
 if (userOptions.hasNumbers=== true) {
   userOptionsVarr = userOptionsVarr.concat(numericCharacters)
 }
-console.log(userOptionsVarr)
+console.log("User ptions array : " + userOptionsVarr)
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -147,7 +147,14 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 
+  var password = "";
+  for (var i = 0; i < userOptions.passwordLenght; i++) {
+    password += getRandom(userOptionsVarr);
+  }
+  return password;
 }
+var randomPass = generatePassword();
+console.log(randomPass)
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
