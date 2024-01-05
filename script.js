@@ -116,12 +116,33 @@ function getPasswordOptions() {
   
 
 }
-getPasswordOptions()
+var userOptions = getPasswordOptions()
+console.log(userOptions);
+
+//Funtion to include the user options into one array.
+var userOptionsVarr = []
+if (userOptions.hasLowercase === true){
+  userOptionsVarr = userOptionsVarr.concat(lowerCasedCharacters)
+}
+if(userOptions.hasUppercase === true){
+  userOptionsVarr = userOptionsVarr.concat(upperCasedCharacters)
+}
+if (userOptions.hasSpecialCharacter === true) {
+  userOptionsVarr = userOptionsVarr.concat(specialCharacters)
+}
+if (userOptions.hasNumbers=== true) {
+  userOptionsVarr = userOptionsVarr.concat(numericCharacters)
+}
+console.log(userOptionsVarr)
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var randomElement = Math.floor(Math.random() * arr.length);
+  return arr[randomElement];
 }
+ var ramdomChar = getRandom(userOptionsVarr);
+ console.log("Ramdom Element is: " + ramdomChar);
+
 
 // Function to generate password with user input
 function generatePassword() {
